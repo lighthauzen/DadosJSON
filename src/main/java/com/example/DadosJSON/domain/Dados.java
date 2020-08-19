@@ -1,10 +1,17 @@
 package com.example.DadosJSON.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
 @Entity
 public class Dados {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer id;
 
     private String product;
 
@@ -17,6 +24,10 @@ public class Dados {
     private String industry;
 
     private String origin;
+
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
 
     public String getProduct() {
         return product;
@@ -64,8 +75,9 @@ public class Dados {
 
     public Dados() {}
 
-    public Dados(String product, Integer quantity, String price, String type, String industry, String origin) {
+    public Dados(Integer id, String product, Integer quantity, String price, String type, String industry, String origin) {
 
+        this.id = id;
         this.product = product;
         this.quantity = quantity;
         this.price = new BigDecimal(price.substring(1));
@@ -74,9 +86,20 @@ public class Dados {
         this.origin = origin;
     }
 
+    public Dados(DadosRaw dadosRaw) {
+
+        this.product = dadosRaw.getProduct();
+        this.quantity = dadosRaw.getQuantity();
+        this.price = dadosRaw.getPrice();
+        this.type = dadosRaw.getType();
+        this.industry = dadosRaw.getIndustry();
+        this.origin = dadosRaw.getOrigin();
+    }
+
     @Override
     public String toString() {
         return "Dados{" +
+                "id='" + id + '\'' +
                 "product='" + product + '\'' +
                 ", quantity=" + quantity +
                 ", price='" + price + '\'' +

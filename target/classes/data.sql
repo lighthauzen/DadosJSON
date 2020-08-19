@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS poducts (
+CREATE TABLE IF NOT EXISTS Dados (
  id INT AUTO_INCREMENT PRIMARY KEY,
  product VARCHAR(50) NOT NULL,
  quantity INT NOT NULL,
@@ -6,4 +6,4 @@ CREATE TABLE IF NOT EXISTS poducts (
  type VARCHAR(50),
  industry VARCHAR(50),
  origin VARCHAR(50)
-)
+);
