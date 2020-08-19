@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS poducts (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ product VARCHAR(50) NOT NULL,
+ quantity INT NOT NULL,
+ price DECIMAL (20,2) NOT NULL,
+ type VARCHAR(50),
+ industry VARCHAR(50),
+ origin VARCHAR(50)
+)
