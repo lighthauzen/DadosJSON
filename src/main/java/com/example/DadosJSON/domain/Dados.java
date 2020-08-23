@@ -25,6 +25,12 @@ public class Dados {
 
     private String origin;
 
+    public String getNomeArq() { return nomeArq; }
+
+    public void setNomeArq(String nomeArq) { this.nomeArq = nomeArq; }
+
+    private String nomeArq;
+
     public Integer getId() { return id; }
 
     public void setId(Integer id) { this.id = id; }
@@ -86,7 +92,7 @@ public class Dados {
         this.origin = origin;
     }
 
-    public Dados(DadosRaw dadosRaw) {
+    public Dados(DadosRaw dadosRaw, String nomeArq) {
 
         this.product = dadosRaw.getProduct();
         this.quantity = dadosRaw.getQuantity();
@@ -94,6 +100,7 @@ public class Dados {
         this.type = dadosRaw.getType();
         this.industry = dadosRaw.getIndustry();
         this.origin = dadosRaw.getOrigin();
+        this.nomeArq = nomeArq;
     }
 
     @Override
@@ -106,6 +113,7 @@ public class Dados {
                 ", type='" + type + '\'' +
                 ", industry='" + industry + '\'' +
                 ", origin='" + origin + '\'' +
+                ", nomeArq='" + nomeArq + '\'' +
                 '}';
     }
 }

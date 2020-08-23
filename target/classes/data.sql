@@ -5,5 +5,6 @@ CREATE TABLE IF NOT EXISTS Dados (
  price DECIMAL (20,2) NOT NULL,
  type VARCHAR(50),
  industry VARCHAR(50),
- origin VARCHAR(50)
+ origin VARCHAR(50),
+ nomeArq VARCHAR(50)
 );

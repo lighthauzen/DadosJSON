@@ -5,7 +5,6 @@ import com.example.DadosJSON.service.DadosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -21,15 +20,28 @@ public class JsonController {
             dadosService.Salvar1Dado();
 
     }
+    @PostMapping("/salvar100")
+    private void salvar100() {
+
+        dadosService.Salvar100Dados();
+
+    }
+
+    @PostMapping("/salvarmais")
+    private int salvarMais() {
+
+       return dadosService.SalvarMaisDados();
+
+    }
 
     @GetMapping("/persons")
     private List<Dados> getAllDados() {
-        return dadosService.getAllPersons();
+        return dadosService.getAllDados();
     }
 
     @GetMapping("/persons/{id}")
     private Dados getDado(@PathVariable("id") int id) {
-        return dadosService.getPersonById(id);
+        return dadosService.getDadoById(id);
     }
 
     @DeleteMapping("/persons/{id}")
